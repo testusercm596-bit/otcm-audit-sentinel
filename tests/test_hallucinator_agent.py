@@ -13,7 +13,11 @@ class TestHallucinatorAgent:
     @pytest.fixture
     def hallucinator_agent(self):
         """Create a Hallucinator agent instance for testing"""
-        return HallucinatorAgent(openai_api_key="test_key")
+        return HallucinatorAgent(
+            api_key="test_key",
+            api_base="https://api.test.com/v1",
+            model="test-model"
+        )
     
     @pytest.fixture
     def sample_document(self):

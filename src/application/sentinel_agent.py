@@ -12,8 +12,17 @@ class SentinelAgent:
     AI agent for analyzing audit logs and detecting security anomalies
     """
     
-    def __init__(self, openai_api_key: str):
-        self.client = openai.OpenAI(api_key=openai_api_key)
+    def __init__(self, api_key: str, api_base: str, model: str):
+        """
+        Initialize Sentinel Agent
+        
+        Args:
+            api_key: API key for the model service
+            api_base: Base URL for the API (e.g., Aviator Model endpoint)
+            model: Model identifier (e.g., openai/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8)
+        """
+        self.client = openai.OpenAI(api_key=api_key, base_url=api_base)
+        self.model = model
     
     def analyze_audit_logs(self, audit_records: List[AuditRecord]) -> List[SecurityFinding]:
         """
@@ -62,7 +71,7 @@ class SentinelAgent:
         """
         
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model=self.model,
             messages=[
                 {"role": "system", "content": "You are a security analyst expert at detecting anomalies in audit logs."},
                 {"role": "user", "content": prompt}

@@ -17,8 +17,15 @@ def example_basic_defense():
     print("Example 1: Basic Defense Generation")
     print("=" * 60)
     
-    # Create Hallucinator Agent
-    agent = HallucinatorAgent(model="gpt-4", temperature=0.7)
+    # Create Hallucinator Agent with Aviator Model
+    agent = HallucinatorAgent(
+        model="openai/meta-llama/Llama-3.3-70B-Instruct",
+        temperature=0.7,
+        api_key="your_api_key_here",
+        api_base="https://sandbox.aviator-model.bp.anthos.otxlab.net/v1"
+    )
+    # Or use without API credentials for mock mode:
+    # agent = HallucinatorAgent(model="gpt-4", temperature=0.7)
     
     # Sample alert
     alert = {
@@ -68,6 +75,7 @@ def example_after_hours_access():
     print("Example 2: After-Hours Access Defense")
     print("=" * 60)
     
+    # Using mock mode (no API credentials)
     agent = HallucinatorAgent()
     
     alert = {

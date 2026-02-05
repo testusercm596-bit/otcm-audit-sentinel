@@ -78,8 +78,10 @@ class AuditSentinelOrchestrator:
         # Initialize Hallucinator Agent
         logger.info("Initializing Hallucinator Agent...")
         self.hallucinator = HallucinatorAgent(
-            model=settings.ai.model,
-            temperature=settings.ai.temperature
+            model=settings.hallucinator_ai.model,
+            temperature=settings.hallucinator_ai.temperature,
+            api_key=settings.hallucinator_ai.api_key,
+            api_base=settings.hallucinator_ai.api_base
         )
         
         # Track last check time

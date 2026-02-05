@@ -31,9 +31,29 @@ class ContentManagerConfig:
 
 @dataclass
 class AIConfig:
-    """AI/OpenAI configuration"""
+    """AI/OpenAI configuration - Legacy/General"""
     openai_api_key: str
     model: str = "gpt-4"
+    temperature: float = 0.7
+    max_tokens: int = 2000
+
+
+@dataclass
+class SentinelAIConfig:
+    """Sentinel agent AI configuration"""
+    api_key: str
+    api_base: str
+    model: str
+    temperature: float = 0.7
+    max_tokens: int = 2000
+
+
+@dataclass
+class HallucinatorAIConfig:
+    """Hallucinator agent AI configuration"""
+    api_key: str
+    api_base: str
+    model: str
     temperature: float = 0.7
     max_tokens: int = 2000
 
@@ -75,6 +95,24 @@ class Settings:
             temperature=float(os.getenv('AI_TEMPERATURE', '0.7'))
         )
         
+        # Sentinel AI Configuration
+        self.sentinel_ai = SentinelAIConfig(
+            api_key=os.getenv('SENTINEL_API_KEY', os.getenv('OPENAI_API_KEY', '')),
+            api_base=os.getenv('SENTINEL_API_BASE', 'https://sandbox.aviator-model.bp.anthos.otxlab.net/v1'),
+            model=os.getenv('SENTINEL_MODEL', 'openai/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'),
+            temperature=float(os.getenv('SENTINEL_TEMPERATURE', '0.7')),
+            max_tokens=int(os.getenv('SENTINEL_MAX_TOKENS', '2000'))
+        )
+        
+        # Hallucinator AI Configuration
+        self.hallucinator_ai = HallucinatorAIConfig(
+            api_key=os.getenv('HALLUCINATOR_API_KEY', os.getenv('OPENAI_API_KEY', '')),
+            api_base=os.getenv('HALLUCINATOR_API_BASE', 'https://sandbox.aviator-model.bp.anthos.otxlab.net/v1'),
+            model=os.getenv('HALLUCINATOR_MODEL', 'openai/meta-llama/Llama-3.3-70B-Instruct'),
+            temperature=float(os.getenv('HALLUCINATOR_TEMPERATURE', '0.7')),
+            max_tokens=int(os.getenv('HALLUCINATOR_MAX_TOKENS', '2000'))
+        )
+        
         self.sentinel = SentinelConfig(
             sensitivity=float(os.getenv('SENTINEL_SENSITIVITY', '0.7')),
             enable_realtime=os.getenv('SENTINEL_REALTIME', 'true').lower() == 'true'
@@ -92,7 +130,8 @@ class Settings:
             (self.content_manager.base_url, "CM_BASE_URL"),
             (self.content_manager.username, "CM_USERNAME"),
             (self.content_manager.password, "CM_PASSWORD"),
-            (self.ai.openai_api_key, "OPENAI_API_KEY")
+            (self.sentinel_ai.api_key, "SENTINEL_API_KEY or OPENAI_API_KEY"),
+            (self.hallucinator_ai.api_key, "HALLUCINATOR_API_KEY or OPENAI_API_KEY")
         ]
         
         missing = [name for value, name in required_settings if not value]

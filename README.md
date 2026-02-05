@@ -55,9 +55,13 @@ pip install -r requirements.txt
 
 4. Configure environment variables:
 ```bash
+# Create .env file from template
 cp .env.template .env
+# Or create manually - see Configuration section below
 # Edit .env with your actual configuration
 ```
+
+**Note:** If `.env.template` doesn't exist, create a `.env` file manually using the template in the Configuration section below.
 
 5. Start the PostgreSQL database with pgvector:
 ```bash
@@ -81,9 +85,25 @@ CM_USERNAME=your_username
 CM_PASSWORD=your_password
 CM_DOMAIN=YOUR_DOMAIN
 
-# OpenAI
+# AI Configuration - Sentinel Agent (Llama-4 Maverick)
+SENTINEL_API_KEY=your_api_key_here
+SENTINEL_API_BASE=https://sandbox.aviator-model.bp.anthos.otxlab.net/v1
+SENTINEL_MODEL=openai/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+SENTINEL_TEMPERATURE=0.7
+SENTINEL_MAX_TOKENS=2000
+
+# AI Configuration - Hallucinator Agent (Llama-3.3)
+HALLUCINATOR_API_KEY=your_api_key_here
+HALLUCINATOR_API_BASE=https://sandbox.aviator-model.bp.anthos.otxlab.net/v1
+HALLUCINATOR_MODEL=openai/meta-llama/Llama-3.3-70B-Instruct
+HALLUCINATOR_TEMPERATURE=0.7
+HALLUCINATOR_MAX_TOKENS=2000
+
+# Legacy OpenAI (fallback/optional)
 OPENAI_API_KEY=your_openai_api_key_here
 ```
+
+**Note:** Both Sentinel and Hallucinator agents now use custom Aviator Model endpoints with Llama models. The API is OpenAI-compatible, allowing seamless integration with the existing codebase.
 
 ## Docker Setup
 
@@ -230,8 +250,22 @@ if alert.is_alert:
 ```python
 from src.application.hallucinator import HallucinatorAgent
 
-# Initialize Hallucinator Agent
-hallucinator = HallucinatorAgent(model="gpt-4", temperature=0.7)
+# Initialize Hallucinator Agent with Aviator Model
+hallucinator = HallucinatorAgent(
+    model="openai/meta-llama/Llama-3.3-70B-Instruct",
+    temperature=0.7,
+    api_key="your_api_key_here",
+    api_base="https://sandbox.aviator-model.bp.anthos.otxlab.net/v1"
+)
+
+# Or use default configuration from settings
+from config.settings import settings
+hallucinator = HallucinatorAgent(
+    model=settings.hallucinator_ai.model,
+    temperature=settings.hallucinator_ai.temperature,
+    api_key=settings.hallucinator_ai.api_key,
+    api_base=settings.hallucinator_ai.api_base
+)
 
 # Generate defense for an alert
 alert = {

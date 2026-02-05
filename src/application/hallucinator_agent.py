@@ -13,8 +13,17 @@ class HallucinatorAgent:
     to identify potential vulnerabilities
     """
     
-    def __init__(self, openai_api_key: str):
-        self.client = openai.OpenAI(api_key=openai_api_key)
+    def __init__(self, api_key: str, api_base: str, model: str):
+        """
+        Initialize Hallucinator Agent
+        
+        Args:
+            api_key: API key for the model service
+            api_base: Base URL for the API (e.g., Aviator Model endpoint)
+            model: Model identifier (e.g., openai/meta-llama/Llama-3.3-70B-Instruct)
+        """
+        self.client = openai.OpenAI(api_key=api_key, base_url=api_base)
+        self.model = model
     
     def test_permissions(self, document: ContentDocument) -> List[SecurityFinding]:
         """
@@ -85,7 +94,7 @@ class HallucinatorAgent:
         """
         
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model=self.model,
             messages=[
                 {"role": "system", "content": "You are a security testing expert specializing in document management systems."},
                 {"role": "user", "content": prompt}
@@ -116,7 +125,7 @@ class HallucinatorAgent:
         """
         
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model=self.model,
             messages=[
                 {"role": "system", "content": "You are a penetration testing expert."},
                 {"role": "user", "content": prompt}

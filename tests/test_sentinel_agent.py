@@ -14,7 +14,11 @@ class TestSentinelAgent:
     def sentinel_agent(self):
         """Create a Sentinel agent instance for testing"""
         # Use a test API key or mock
-        return SentinelAgent(openai_api_key="test_key")
+        return SentinelAgent(
+            api_key="test_key",
+            api_base="https://api.test.com/v1",
+            model="test-model"
+        )
     
     @pytest.fixture
     def sample_audit_records(self):

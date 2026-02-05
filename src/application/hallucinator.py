@@ -7,6 +7,7 @@ from typing import List, Dict, Optional
 from dataclasses import dataclass
 import json
 import random
+import openai
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
@@ -45,16 +46,29 @@ class HallucinatorAgent:
     And attempts to construct a reasonable, benign explanation.
     """
     
-    def __init__(self, model: str = "gpt-4", temperature: float = 0.7):
+    def __init__(self, model: str = "gpt-4", temperature: float = 0.7, api_key: str = None, api_base: str = None):
         """
         Initialize Hallucinator Agent
         
         Args:
             model: LLM model to use (default: gpt-4)
             temperature: Temperature for LLM generation (0.0-1.0)
+            api_key: API key for the model service (optional, uses env var if not provided)
+            api_base: Base URL for the API (optional, uses default OpenAI if not provided)
         """
         self.model = model
         self.temperature = temperature
+        
+        # Initialize OpenAI client if API credentials are provided
+        if api_key and api_base:
+            self.client = openai.OpenAI(api_key=api_key, base_url=api_base)
+            self.use_mock = False
+        elif api_key:
+            self.client = openai.OpenAI(api_key=api_key)
+            self.use_mock = False
+        else:
+            self.client = None
+            self.use_mock = True  # Fallback to mock implementation
     
     def generate_defense(self, alert: Dict, user_history: List[Dict]) -> DefenseContext:
         """
@@ -190,27 +204,38 @@ If you CANNOT find a reasonable benign explanation, set confidence to 0.0 and ex
             
         Returns:
             LLM response as string
-        
-        Note:
-            This is a PLACEHOLDER implementation. In production, this should:
-            1. Call the actual Aviator Model API
-            2. Handle rate limiting and errors
-            3. Implement retry logic
-            4. Log API calls for auditing
-        
-        Example production implementation:
-            import openai
-            response = openai.ChatCompletion.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": "You are a security defense attorney."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=self.temperature
-            )
-            return response.choices[0].message.content
         """
-        # MOCK IMPLEMENTATION - Generate realistic defense responses
+        # If client is configured, use actual API
+        if not self.use_mock and self.client:
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": "You are a security defense attorney."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=self.temperature,
+                    response_format={"type": "json_object"}
+                )
+                return response.choices[0].message.content
+            except Exception as e:
+                # Fallback to mock if API call fails
+                print(f"Warning: LLM API call failed ({str(e)}), using mock response")
+                return self._generate_mock_response(prompt)
+        else:
+            # Use mock implementation
+            return self._generate_mock_response(prompt)
+    
+    def _generate_mock_response(self, prompt: str) -> str:
+        """
+        Generate mock LLM response for testing/fallback
+        
+        Args:
+            prompt: The prompt (used to determine response type)
+            
+        Returns:
+            Mock JSON response string
+        """
         
         # Simulate different types of defenses based on prompt content
         if "DELETE" in prompt and "5" in prompt:
