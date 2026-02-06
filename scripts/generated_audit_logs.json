@@ -1,0 +1,1717 @@
+{
+    "Results": [
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-05T11:18:00Z",
+                "StringValue": "05-02-2026 at 11:18"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Record - done by 'opentext\\jsmith' on 05-02-2026 at 11:18"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record",
+                "StringValue": "Record"
+            },
+            "HistoryForObjectUri": {
+                "Value": 5496
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40002,
+            "HistoryLocation": {
+                "NameString": "Compliance Reports",
+                "Uri": 308
+            },
+            "HistoryRecord": {
+                "NameString": "D26/690",
+                "Uri": 5496
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-04T11:22:00Z",
+                "StringValue": "04-02-2026 at 11:22"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Active Audit Event - done by 'OPENTEXT\\rjones' on 04-02-2026 at 11:22"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Active Audit Event",
+                "StringValue": "Active Audit Event"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3144
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\rjones"
+                },
+                "NameString": "OPENTEXT\\rjones",
+                "Uri": 9005
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40029
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T15:52:00Z",
+                "StringValue": "02-02-2026 at 15:52"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Consignment Record Rejection - done by 'opentext\\jsmith' on 02-02-2026 at 15:52"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Record Rejection",
+                "StringValue": "Consignment Record Rejection"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3637
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40031
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T15:52:00Z",
+                "StringValue": "02-02-2026 at 15:52"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Consignment Approver - done by 'OPENTEXT\\pnayak2' on 02-02-2026 at 15:52"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Approver",
+                "StringValue": "Consignment Approver"
+            },
+            "HistoryForObjectUri": {
+                "Value": 9019
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\pnayak2"
+                },
+                "NameString": "OPENTEXT\\pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40045
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T15:43:00Z",
+                "StringValue": "02-02-2026 at 15:43"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Record Action - done by 'opentext\\jsmith' on 02-02-2026 at 15:43"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record Action",
+                "StringValue": "Record Action"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8570
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40023
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T14:02:00Z",
+                "StringValue": "02-02-2026 at 14:02"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Check In Style - done by 'consultant@external.com' on 02-02-2026 at 14:02"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8231
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40042
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T13:38:00Z",
+                "StringValue": "02-02-2026 at 13:38"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Active Audit Event - done by 'jitendra@w0kyd.onmicrosoft.com' on 02-02-2026 at 13:38"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Active Audit Event",
+                "StringValue": "Active Audit Event"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1720
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "jitendra@w0kyd.onmicrosoft.com"
+                },
+                "NameString": "jitendra@w0kyd.onmicrosoft.com",
+                "Uri": 9002
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40020
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T11:57:00Z",
+                "StringValue": "02-02-2026 at 11:57"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Activity - done by 'pnayak2' on 02-02-2026 at 11:57"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Activity",
+                "StringValue": "Activity"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1802
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40036
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T11:33:00Z",
+                "StringValue": "02-02-2026 at 11:33"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Consignment Approver - done by 'admin@opentext.com' on 02-02-2026 at 11:33"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Approver",
+                "StringValue": "Consignment Approver"
+            },
+            "HistoryForObjectUri": {
+                "Value": 7125
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40043
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T11:13:00Z",
+                "StringValue": "02-02-2026 at 11:13"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Record Action - done by 'pnayak2' on 02-02-2026 at 11:13"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record Action",
+                "StringValue": "Record Action"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2782
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40035
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-02-02T10:25:00Z",
+                "StringValue": "02-02-2026 at 10:25"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Check In Style - done by 'pnayak2' on 02-02-2026 at 10:25"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 9723
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40041
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-31T22:30:00Z",
+                "StringValue": "31-01-2026 at 22:30"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Check In Style - done by 'consultant@external.com' on 31-01-2026 at 22:30"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3610
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": true
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40019
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-28T09:34:00Z",
+                "StringValue": "28-01-2026 at 09:34"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - Location - done by 'opentext\\jsmith' on 28-01-2026 at 09:34"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "Location",
+                "StringValue": "Location"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2975
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40032,
+            "HistoryLocation": {
+                "NameString": "Project Files",
+                "Uri": 404
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-27T22:46:00Z",
+                "StringValue": "27-01-2026 at 22:46"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - User Label - done by 'consultant@external.com' on 27-01-2026 at 22:46"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "User Label",
+                "StringValue": "User Label"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4480
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40013
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-26T19:42:00Z",
+                "StringValue": "26-01-2026 at 19:42"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Saved Search - done by 'admin@opentext.com' on 26-01-2026 at 19:42"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Saved Search",
+                "StringValue": "Saved Search"
+            },
+            "HistoryForObjectUri": {
+                "Value": 5347
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40016
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-26T19:29:00Z",
+                "StringValue": "26-01-2026 at 19:29"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Record - done by 'admin@opentext.com' on 26-01-2026 at 19:29"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record",
+                "StringValue": "Record"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3051
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40017,
+            "HistoryLocation": {
+                "NameString": "Legal Documents",
+                "Uri": 308
+            },
+            "HistoryRecord": {
+                "NameString": "D26/393",
+                "Uri": 3051
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-26T15:49:00Z",
+                "StringValue": "26-01-2026 at 15:49"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Consignment Record Rejection - done by 'opentext\\jsmith' on 26-01-2026 at 15:49"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Record Rejection",
+                "StringValue": "Consignment Record Rejection"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3102
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40038
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-26T13:16:00Z",
+                "StringValue": "26-01-2026 at 13:16"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - User Label - done by 'OPENTEXT\\pnayak2' on 26-01-2026 at 13:16"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "User Label",
+                "StringValue": "User Label"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1546
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\pnayak2"
+                },
+                "NameString": "OPENTEXT\\pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40000
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-26T02:22:00Z",
+                "StringValue": "26-01-2026 at 02:22"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - To Do Item - done by 'admin@opentext.com' on 26-01-2026 at 02:22"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "To Do Item",
+                "StringValue": "To Do Item"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4869
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40012
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-24T22:46:00Z",
+                "StringValue": "24-01-2026 at 22:46"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - To Do Item - done by 'consultant@external.com' on 24-01-2026 at 22:46"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "To Do Item",
+                "StringValue": "To Do Item"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8680
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40018
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-23T18:08:00Z",
+                "StringValue": "23-01-2026 at 18:08"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Workflow - done by 'admin@opentext.com' on 23-01-2026 at 18:08"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Workflow",
+                "StringValue": "Workflow"
+            },
+            "HistoryForObjectUri": {
+                "Value": 6087
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40003
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-23T13:24:00Z",
+                "StringValue": "23-01-2026 at 13:24"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Location - done by 'opentext\\jsmith' on 23-01-2026 at 13:24"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Location",
+                "StringValue": "Location"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1837
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": true
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40048,
+            "HistoryLocation": {
+                "NameString": "Executive Office",
+                "Uri": 453
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-23T12:27:00Z",
+                "StringValue": "23-01-2026 at 12:27"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Activity - done by 'admin@opentext.com' on 23-01-2026 at 12:27"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Activity",
+                "StringValue": "Activity"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3118
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40037
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-22T12:07:00Z",
+                "StringValue": "22-01-2026 at 12:07"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - Request - done by 'opentext\\jsmith' on 22-01-2026 at 12:07"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "Request",
+                "StringValue": "Request"
+            },
+            "HistoryForObjectUri": {
+                "Value": 7190
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40033
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-22T11:04:00Z",
+                "StringValue": "22-01-2026 at 11:04"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Workflow - done by 'OPENTEXT\\pnayak2' on 22-01-2026 at 11:04"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Workflow",
+                "StringValue": "Workflow"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8872
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\pnayak2"
+                },
+                "NameString": "OPENTEXT\\pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40015
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-21T13:05:00Z",
+                "StringValue": "21-01-2026 at 13:05"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Workflow - done by 'consultant@external.com' on 21-01-2026 at 13:05"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Workflow",
+                "StringValue": "Workflow"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3840
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40024
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-21T07:06:00Z",
+                "StringValue": "21-01-2026 at 07:06"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Consignment Approver - done by 'consultant@external.com' on 21-01-2026 at 07:06"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Approver",
+                "StringValue": "Consignment Approver"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2441
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40034
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-20T14:40:00Z",
+                "StringValue": "20-01-2026 at 14:40"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Check In Style - done by 'jitendra@w0kyd.onmicrosoft.com' on 20-01-2026 at 14:40"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 6810
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "jitendra@w0kyd.onmicrosoft.com"
+                },
+                "NameString": "jitendra@w0kyd.onmicrosoft.com",
+                "Uri": 9002
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40027
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-19T16:45:00Z",
+                "StringValue": "19-01-2026 at 16:45"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Record Action - done by 'opentext\\jsmith' on 19-01-2026 at 16:45"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record Action",
+                "StringValue": "Record Action"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1235
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40028
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-19T15:28:00Z",
+                "StringValue": "19-01-2026 at 15:28"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Workflow - done by 'consultant@external.com' on 19-01-2026 at 15:28"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Workflow",
+                "StringValue": "Workflow"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8826
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40009
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-19T13:10:00Z",
+                "StringValue": "19-01-2026 at 13:10"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Workflow - done by 'opentext\\jsmith' on 19-01-2026 at 13:10"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Workflow",
+                "StringValue": "Workflow"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4862
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40046
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-19T09:51:00Z",
+                "StringValue": "19-01-2026 at 09:51"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Active Audit Event - done by 'admin@opentext.com' on 19-01-2026 at 09:51"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Active Audit Event",
+                "StringValue": "Active Audit Event"
+            },
+            "HistoryForObjectUri": {
+                "Value": 7219
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40047
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-17T00:44:00Z",
+                "StringValue": "17-01-2026 at 00:44"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - To Do Item - done by 'admin@opentext.com' on 17-01-2026 at 00:44"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "To Do Item",
+                "StringValue": "To Do Item"
+            },
+            "HistoryForObjectUri": {
+                "Value": 5663
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40008
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-16T15:18:00Z",
+                "StringValue": "16-01-2026 at 15:18"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Active Audit Event - done by 'pnayak2' on 16-01-2026 at 15:18"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Active Audit Event",
+                "StringValue": "Active Audit Event"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4938
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40030
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-16T10:51:00Z",
+                "StringValue": "16-01-2026 at 10:51"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Check In Style - done by 'opentext\\jsmith' on 16-01-2026 at 10:51"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 5406
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": true
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40004
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-15T23:59:00Z",
+                "StringValue": "15-01-2026 at 23:59"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Consignment Approver - done by 'admin@opentext.com' on 15-01-2026 at 23:59"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Approver",
+                "StringValue": "Consignment Approver"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2384
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40025
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-13T11:04:00Z",
+                "StringValue": "13-01-2026 at 11:04"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Consignment Record Rejection - done by 'OPENTEXT\\rjones' on 13-01-2026 at 11:04"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Record Rejection",
+                "StringValue": "Consignment Record Rejection"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2721
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\rjones"
+                },
+                "NameString": "OPENTEXT\\rjones",
+                "Uri": 9005
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40014
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-13T09:51:00Z",
+                "StringValue": "13-01-2026 at 09:51"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - Activity - done by 'OPENTEXT\\pnayak2' on 13-01-2026 at 09:51"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "Activity",
+                "StringValue": "Activity"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8486
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\pnayak2"
+                },
+                "NameString": "OPENTEXT\\pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40011
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T16:20:00Z",
+                "StringValue": "12-01-2026 at 16:20"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Check In Style - done by 'OPENTEXT\\pnayak2' on 12-01-2026 at 16:20"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2209
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "OPENTEXT\\pnayak2"
+                },
+                "NameString": "OPENTEXT\\pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40049
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T15:13:00Z",
+                "StringValue": "12-01-2026 at 15:13"
+            },
+            "HistoryEventDescription": {
+                "Value": "Deleted - Location - done by 'opentext\\jsmith' on 12-01-2026 at 15:13"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectDeleted",
+                "StringValue": "Deleted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Location",
+                "StringValue": "Location"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2604
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "opentext\\jsmith"
+                },
+                "NameString": "opentext\\jsmith",
+                "Uri": 9003
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40006,
+            "HistoryLocation": {
+                "NameString": "Legal Documents",
+                "Uri": 153
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T14:48:00Z",
+                "StringValue": "12-01-2026 at 14:48"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Record Action - done by 'jitendra@w0kyd.onmicrosoft.com' on 12-01-2026 at 14:48"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record Action",
+                "StringValue": "Record Action"
+            },
+            "HistoryForObjectUri": {
+                "Value": 5742
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "jitendra@w0kyd.onmicrosoft.com"
+                },
+                "NameString": "jitendra@w0kyd.onmicrosoft.com",
+                "Uri": 9002
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40040
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T11:28:00Z",
+                "StringValue": "12-01-2026 at 11:28"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - Check In Style - done by 'pnayak2' on 12-01-2026 at 11:28"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "Check In Style",
+                "StringValue": "Check In Style"
+            },
+            "HistoryForObjectUri": {
+                "Value": 3025
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40044
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T10:07:00Z",
+                "StringValue": "12-01-2026 at 10:07"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Consignment Record Rejection - done by 'jitendra@w0kyd.onmicrosoft.com' on 12-01-2026 at 10:07"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Consignment Record Rejection",
+                "StringValue": "Consignment Record Rejection"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8270
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "jitendra@w0kyd.onmicrosoft.com"
+                },
+                "NameString": "jitendra@w0kyd.onmicrosoft.com",
+                "Uri": 9002
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40007
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T08:19:00Z",
+                "StringValue": "12-01-2026 at 08:19"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - To Do Item - done by 'consultant@external.com' on 12-01-2026 at 08:19"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "To Do Item",
+                "StringValue": "To Do Item"
+            },
+            "HistoryForObjectUri": {
+                "Value": 6897
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40026
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-12T00:08:00Z",
+                "StringValue": "12-01-2026 at 00:08"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Record Action - done by 'consultant@external.com' on 12-01-2026 at 00:08"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record Action",
+                "StringValue": "Record Action"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4917
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40022
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-09T23:52:00Z",
+                "StringValue": "09-01-2026 at 23:52"
+            },
+            "HistoryEventDescription": {
+                "Value": "Extracted - Request - done by 'consultant@external.com' on 09-01-2026 at 23:52"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentExtracted",
+                "StringValue": "Extracted"
+            },
+            "HistoryForObjectType": {
+                "Value": "Request",
+                "StringValue": "Request"
+            },
+            "HistoryForObjectUri": {
+                "Value": 8775
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40039
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-09T19:59:00Z",
+                "StringValue": "09-01-2026 at 19:59"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - To Do Item - done by 'consultant@external.com' on 09-01-2026 at 19:59"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "To Do Item",
+                "StringValue": "To Do Item"
+            },
+            "HistoryForObjectUri": {
+                "Value": 4318
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "consultant@external.com"
+                },
+                "NameString": "consultant@external.com",
+                "Uri": 9006
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40005
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-08T17:37:00Z",
+                "StringValue": "08-01-2026 at 17:37"
+            },
+            "HistoryEventDescription": {
+                "Value": "Added - Activity - done by 'admin@opentext.com' on 08-01-2026 at 17:37"
+            },
+            "HistoryEventType": {
+                "Value": "ObjectAdded",
+                "StringValue": "Added"
+            },
+            "HistoryForObjectType": {
+                "Value": "Activity",
+                "StringValue": "Activity"
+            },
+            "HistoryForObjectUri": {
+                "Value": 2992
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40001
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-07T10:54:00Z",
+                "StringValue": "07-01-2026 at 10:54"
+            },
+            "HistoryEventDescription": {
+                "Value": "Modified - Record - done by 'pnayak2' on 07-01-2026 at 10:54"
+            },
+            "HistoryEventType": {
+                "Value": "RevisionUpdated",
+                "StringValue": "Modified"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record",
+                "StringValue": "Record"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1055
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "pnayak2"
+                },
+                "NameString": "pnayak2",
+                "Uri": 9001
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40021,
+            "HistoryLocation": {
+                "NameString": "Internal Audit",
+                "Uri": 455
+            },
+            "HistoryRecord": {
+                "NameString": "D26/386",
+                "Uri": 1055
+            }
+        },
+        {
+            "HistoryDoneOn": {
+                "DateTime": "2026-01-07T07:19:00Z",
+                "StringValue": "07-01-2026 at 07:19"
+            },
+            "HistoryEventDescription": {
+                "Value": "Viewed - Record - done by 'admin@opentext.com' on 07-01-2026 at 07:19"
+            },
+            "HistoryEventType": {
+                "Value": "DocumentViewed",
+                "StringValue": "Viewed"
+            },
+            "HistoryForObjectType": {
+                "Value": "Record",
+                "StringValue": "Record"
+            },
+            "HistoryForObjectUri": {
+                "Value": 1735
+            },
+            "HistoryIsSecurityViolation": {
+                "Value": false
+            },
+            "HistoryLoginLocation": {
+                "LocationFormattedName": {
+                    "Value": "admin@opentext.com"
+                },
+                "NameString": "admin@opentext.com",
+                "Uri": 9004
+            },
+            "PossiblyHasSubordinates": false,
+            "TrimType": "History",
+            "Uri": 40010,
+            "HistoryLocation": {
+                "NameString": "HR Records",
+                "Uri": 415
+            },
+            "HistoryRecord": {
+                "NameString": "D26/176",
+                "Uri": 1735
+            }
+        }
+    ],
+    "PropertiesAndFields": {
+        "History": [
+            "HistoryDoneOn",
+            "HistoryEventDescription",
+            "HistoryEventType",
+            "HistoryForObjectType",
+            "HistoryForObjectUri",
+            "HistoryIsSecurityViolation",
+            "HistoryLocation",
+            "HistoryLoginLocation"
+        ]
+    },
+    "TotalResults": 50,
+    "CountStringEx": "50 active audit events",
+    "MinimumCount": 50,
+    "Count": 50,
+    "HasMoreItems": false,
+    "TrimType": "History",
+    "ResponseStatus": {}
+}
