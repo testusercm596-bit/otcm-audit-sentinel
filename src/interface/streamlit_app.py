@@ -6,13 +6,15 @@ import pandas as pd
 from datetime import datetime, timedelta
 import sys
 import os
+import time
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.application.sentinel_agent import SentinelAgent
 from src.application.hallucinator_agent import HallucinatorAgent
-from src.infrastructure.database import DatabaseConnection
+from src.infrastructure.database import db
+from src.infrastructure.alert_repository import AlertResultRepository
 from src.infrastructure.content_manager_client import ContentManagerClient
 
 
@@ -49,58 +51,158 @@ def show_dashboard():
     """Display main dashboard"""
     st.header("Security Dashboard")
     
-    # Metrics
-    col1, col2, col3, col4 = st.columns(4)
+    # Auto-refresh toggle
+    col_refresh1, col_refresh2 = st.columns([3, 1])
+    with col_refresh2:
+        auto_refresh = st.checkbox("Auto-refresh (30s)", value=False)
     
-    with col1:
-        st.metric("Critical Findings", "3", "-1")
-    with col2:
-        st.metric("High Risk", "12", "+2")
-    with col3:
-        st.metric("Audit Events", "1,234", "+45")
-    with col4:
-        st.metric("System Health", "98%", "+2%")
+    # Fetch real metrics from database
+    db.connect()
+    session = db.get_session()
+    alert_repo = AlertResultRepository(session)
     
-    # Recent findings chart
-    st.subheader("Recent Security Findings")
+    try:
+        all_alerts = alert_repo.get_all(limit=1000)
+        active_alerts = alert_repo.get_active_alerts(limit=1000)
+        escalated = alert_repo.get_escalated_alerts(limit=1000)
+        
+        # Count by severity
+        critical = len([a for a in active_alerts if a.risk_score >= 0.8])
+        high = len([a for a in active_alerts if 0.6 <= a.risk_score < 0.8])
+        medium = len([a for a in active_alerts if 0.4 <= a.risk_score < 0.6])
+        
+        # Metrics
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.metric("Critical Findings", critical)
+        with col2:
+            st.metric("High Risk", high)
+        with col3:
+            st.metric("Total Alerts", len(active_alerts))
+        with col4:
+            st.metric("Escalated", len(escalated))
+        
+        # Recent findings chart
+        st.subheader("Recent Security Findings")
+        
+        if all_alerts:
+            # Group by date and severity
+            df_alerts = pd.DataFrame([{
+                'timestamp': a.timestamp,
+                'risk_score': a.risk_score,
+                'severity': 'Critical' if a.risk_score >= 0.8 else 'High' if a.risk_score >= 0.6 else 'Medium'
+            } for a in all_alerts])
+            
+            df_alerts['date'] = pd.to_datetime(df_alerts['timestamp']).dt.date
+            
+            # Count by date and severity
+            chart_data = df_alerts.groupby(['date', 'severity']).size().unstack(fill_value=0)
+            
+            if not chart_data.empty:
+                st.line_chart(chart_data)
+            else:
+                st.info("No alert data available for charting")
+        else:
+            st.info("No alerts found in database")
+        
+        # Recent alerts list
+        st.subheader("Recent Active Alerts")
+        if active_alerts[:5]:
+            for alert in active_alerts[:5]:
+                severity = "🔴" if alert.risk_score >= 0.8 else "🟠" if alert.risk_score >= 0.6 else "🟡"
+                st.warning(f"{severity} **{alert.user_id}** - {alert.event_type} (Risk: {alert.risk_score:.2f})")
+        else:
+            st.success("No active alerts - system is secure! ✅")
+            
+    finally:
+        session.close()
+        db.close()
     
-    # Placeholder data
-    findings_data = pd.DataFrame({
-        'Date': pd.date_range(end=datetime.now(), periods=7, freq='D'),
-        'Critical': [1, 2, 1, 3, 2, 1, 3],
-        'High': [5, 4, 6, 7, 8, 5, 12],
-        'Medium': [10, 12, 11, 9, 15, 14, 16]
-    })
-    
-    st.line_chart(findings_data.set_index('Date'))
+    # Auto-refresh logic
+    if auto_refresh:
+        time.sleep(30)
+        st.rerun()
 
 
 def show_audit_analysis():
     """Audit log analysis page"""
     st.header("📊 Audit Log Analysis (Sentinel Agent)")
     
-    # Date range selector
-    col1, col2 = st.columns(2)
-    with col1:
-        start_date = st.date_input("Start Date", datetime.now() - timedelta(days=7))
-    with col2:
-        end_date = st.date_input("End Date", datetime.now())
+    st.markdown("""
+    View alerts detected by the Sentinel Agent from audit log analysis.
+    The Sentinel Agent continuously monitors audit logs and flags suspicious activities.
+    """)
     
-    if st.button("Run Analysis", type="primary"):
-        with st.spinner("Analyzing audit logs..."):
-            st.info("🤖 Sentinel Agent analyzing patterns...")
-            # Placeholder for actual analysis
-            st.success("Analysis complete! Found 5 potential anomalies.")
+    # Fetch recent sentinel alerts
+    db.connect()
+    session = db.get_session()
+    alert_repo = AlertResultRepository(session)
+    
+    try:
+        # Get recent alerts
+        alerts = alert_repo.get_all(limit=20)
+        
+        if alerts:
+            st.subheader(f"Recent Sentinel Detections ({len(alerts)} alerts)")
             
-            # Display results
-            results_df = pd.DataFrame({
-                'Timestamp': ['2026-02-05 14:30', '2026-02-05 12:15', '2026-02-04 18:45'],
-                'User': ['user123', 'admin_user', 'user456'],
-                'Anomaly Type': ['Unusual Access Pattern', 'Privilege Escalation', 'Data Exfiltration'],
-                'Severity': ['High', 'Critical', 'Medium'],
-                'Confidence': [0.85, 0.92, 0.73]
-            })
+            # Create DataFrame
+            results_data = []
+            for alert in alerts:
+                results_data.append({
+                    'Timestamp': alert.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+                    'User': alert.user_id,
+                    'Event Type': alert.event_type,
+                    'Anomaly Type': alert.alert_reason[:50] + '...' if len(alert.alert_reason) > 50 else alert.alert_reason,
+                    'Risk Score': alert.risk_score,
+                    'Sentinel Conf.': alert.initial_confidence if alert.initial_confidence else 0.0,
+                    'Defense Conf.': alert.defense_confidence if alert.defense_confidence else 0.0,
+                    'Status': alert.final_status
+                })
+            
+            results_df = pd.DataFrame(results_data)
+            
+            # Display metrics
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                avg_risk = results_df['Risk Score'].mean()
+                st.metric("Avg Risk Score", f"{avg_risk:.2f}")
+            with col2:
+                high_risk = len(results_df[results_df['Risk Score'] >= 0.6])
+                st.metric("High Risk Events", high_risk)
+            with col3:
+                escalated = len(results_df[results_df['Status'] == 'escalated'])
+                st.metric("Escalated", escalated)
+            
+            # Display table
             st.dataframe(results_df, use_container_width=True)
+            
+            # Show detailed view
+            st.subheader("Detailed Alerts")
+            for i, alert in enumerate(alerts[:5], 1):
+                with st.expander(f"Alert {i}: {alert.user_id} - {alert.event_type} (Risk: {alert.risk_score:.2f})"):
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.write(f"**Timestamp:** {alert.timestamp}")
+                        st.write(f"**User ID:** {alert.user_id}")
+                        st.write(f"**Event Type:** {alert.event_type}")
+                        st.write(f"**Status:** {alert.final_status}")
+                    with col2:
+                        st.write(f"**Risk Score:** {alert.risk_score:.2f}")
+                        st.write(f"**Sentinel Confidence:** {alert.initial_confidence:.2f if alert.initial_confidence else 'N/A'}")
+                        st.write(f"**Defense Confidence:** {alert.defense_confidence:.2f if alert.defense_confidence else 'N/A'}")
+                        st.write(f"**Dismissed:** {'Yes' if alert.dismissed else 'No'}")
+                    
+                    st.write(f"**Alert Reason:** {alert.alert_reason}")
+                    if alert.defense_reasoning:
+                        st.write(f"**Defense Reasoning:** {alert.defense_reasoning}")
+        else:
+            st.info("No alerts found. Run the sentinel agent to analyze audit logs.")
+            st.code("python main.py", language="bash")
+    
+    finally:
+        session.close()
+        db.close()
 
 
 def show_security_testing():
@@ -137,8 +239,13 @@ def show_findings():
     """Security findings page"""
     st.header("📋 Security Findings")
     
+    # Auto-refresh
+    col_title, col_refresh = st.columns([3, 1])
+    with col_refresh:
+        auto_refresh = st.checkbox("Auto-refresh (15s)", value=False, key="findings_refresh")
+    
     # Filter options
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         severity_filter = st.multiselect(
             "Severity",
@@ -147,29 +254,96 @@ def show_findings():
         )
     with col2:
         agent_filter = st.multiselect(
-            "Detected By",
+            "Agent",
             ["Sentinel", "Hallucinator"],
             default=["Sentinel", "Hallucinator"]
         )
     with col3:
-        status_filter = st.selectbox("Status", ["All", "Open", "Resolved"])
+        status_filter = st.selectbox("Status", ["All", "Active", "Dismissed", "Escalated"])
+    with col4:
+        limit = st.number_input("Max Results", min_value=10, max_value=500, value=50, step=10)
     
-    # Findings table (placeholder data)
-    findings_df = pd.DataFrame({
-        'ID': ['F001', 'F002', 'F003', 'F004'],
-        'Severity': ['Critical', 'High', 'High', 'Medium'],
-        'Description': [
-            'Unauthorized access attempt detected',
-            'Privilege escalation pattern identified',
-            'Unusual data access pattern',
-            'Missing encryption on sensitive data'
-        ],
-        'Detected By': ['Sentinel', 'Sentinel', 'Hallucinator', 'Hallucinator'],
-        'Date': ['2026-02-05', '2026-02-05', '2026-02-04', '2026-02-04'],
-        'Status': ['Open', 'Open', 'Open', 'Resolved']
-    })
+    # Fetch live alerts from database
+    db.connect()
+    session = db.get_session()
+    alert_repo = AlertResultRepository(session)
     
-    st.dataframe(findings_df, use_container_width=True)
+    try:
+        # Get alerts based on status filter
+        if status_filter == "Active":
+            alerts = alert_repo.get_active_alerts(limit=limit)
+        elif status_filter == "Escalated":
+            alerts = alert_repo.get_escalated_alerts(limit=limit)
+        else:
+            alerts = alert_repo.get_all(limit=limit)
+        
+        if status_filter == "Dismissed":
+            alerts = [a for a in alerts if a.dismissed]
+        
+        # Convert to DataFrame
+        if alerts:
+            findings_data = []
+            for alert in alerts:
+                # Determine severity based on risk score
+                if alert.risk_score >= 0.8:
+                    severity = "Critical"
+                elif alert.risk_score >= 0.6:
+                    severity = "High"
+                elif alert.risk_score >= 0.4:
+                    severity = "Medium"
+                else:
+                    severity = "Low"
+                
+                # Determine agent
+                agent = alert.agent_type if hasattr(alert, 'agent_type') else "Sentinel"
+                
+                # Apply filters
+                if severity not in severity_filter:
+                    continue
+                if agent not in agent_filter:
+                    continue
+                
+                findings_data.append({
+                    'ID': f'A{alert.id:04d}',
+                    'Timestamp': alert.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+                    'User': alert.user_id,
+                    'Event': alert.event_type,
+                    'Severity': severity,
+                    'Risk Score': f"{alert.risk_score:.2f}",
+                    'Agent': agent,
+                    'Status': alert.final_status,
+                    'Reason': alert.alert_reason[:80] + '...' if len(alert.alert_reason) > 80 else alert.alert_reason,
+                    'Dismissed': '✓' if alert.dismissed else ''
+                })
+            
+            if findings_data:
+                findings_df = pd.DataFrame(findings_data)
+                
+                st.write(f"**Found {len(findings_df)} alerts**")
+                st.dataframe(findings_df, use_container_width=True)
+                
+                # Export option
+                if st.button("Export to CSV"):
+                    csv = findings_df.to_csv(index=False)
+                    st.download_button(
+                        label="Download CSV",
+                        data=csv,
+                        file_name=f"alerts_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                        mime="text/csv"
+                    )
+            else:
+                st.info("No alerts match the selected filters")
+        else:
+            st.info("No alerts found in database. Run the sentinel to generate alerts.")
+    
+    finally:
+        session.close()
+        db.close()
+    
+    # Auto-refresh logic
+    if auto_refresh:
+        time.sleep(15)
+        st.rerun()
 
 
 def show_settings():
