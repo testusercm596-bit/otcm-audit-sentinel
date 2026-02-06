@@ -15,13 +15,13 @@ class AuditLogRepository:
     def __init__(self, session: Session):
         self.session = session
     
-    def create(self, user_id: str, action: str, metadata: dict = None, embedding: List[float] = None) -> AuditLog:
+    def create(self, user_id: str, action: str, event_metadata: dict = None, embedding: List[float] = None) -> AuditLog:
         """Create a new audit log entry"""
         audit_log = AuditLog(
             user_id=user_id,
             action=action,
             timestamp=datetime.utcnow(),
-            metadata=metadata,
+            event_metadata=event_metadata,
             embedding=embedding
         )
         self.session.add(audit_log)

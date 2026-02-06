@@ -196,7 +196,7 @@ def create_client_from_settings():
     Returns:
         ContentManagerClient instance
     """
-    from src.config.settings import settings
+    from config.settings import settings
     
     return ContentManagerClient(
         base_url=settings.content_manager.base_url,

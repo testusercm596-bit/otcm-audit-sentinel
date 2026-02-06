@@ -20,7 +20,7 @@ class AuditLog(Base):
     user_id = Column(String(255), nullable=False, index=True)
     action = Column(String(100), nullable=False, index=True)
     timestamp = Column(DateTime, nullable=False, default=datetime.utcnow, index=True)
-    metadata = Column(JSON, nullable=True)
+    event_metadata = Column(JSON, nullable=True)
     embedding = Column(Vector(1536), nullable=True)  # OpenAI ada-002 embedding dimension
     
     def __repr__(self):
@@ -33,5 +33,5 @@ class AuditLog(Base):
             'user_id': self.user_id,
             'action': self.action,
             'timestamp': self.timestamp.isoformat() if self.timestamp else None,
-            'metadata': self.metadata
+            'event_metadata': self.event_metadata
         }

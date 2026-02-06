@@ -12,7 +12,7 @@ from typing import List, Dict
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from src.config.settings import settings
+from config.settings import settings
 from src.infrastructure.database import db
 from src.infrastructure.cm_client import ContentManagerClient
 from src.infrastructure.repositories import AuditLogRepository
@@ -168,7 +168,7 @@ class AuditSentinelOrchestrator:
         audit_log = audit_repo.create(
             user_id=user_id,
             action=event_type,
-            metadata=log,
+            event_metadata=log,
             embedding=log.get('embedding')
         )
         
@@ -251,8 +251,8 @@ class AuditSentinelOrchestrator:
         
         history = []
         for log in audit_logs:
-            if log.metadata:
-                history.append(log.metadata)
+            if log.event_metadata:
+                history.append(log.event_metadata)
             else:
                 history.append({
                     'event_type': log.action,

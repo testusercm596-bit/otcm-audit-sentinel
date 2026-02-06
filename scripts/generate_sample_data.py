@@ -43,7 +43,7 @@ def generate_sample_data():
             audit_log = audit_repo.create(
                 user_id=user,
                 action=event,
-                metadata={
+                event_metadata={
                     'record_type': 'Document',
                     'record_title': f'Sample_Document_{i}.pdf'
                 }
@@ -135,7 +135,7 @@ def generate_sample_data():
             audit_log = audit_repo.create(
                 user_id=scenario['user'],
                 action=scenario['event'],
-                metadata={
+                event_metadata={
                     'record_type': 'Document',
                     'record_title': 'Sensitive_Document.pdf'
                 }
@@ -172,7 +172,7 @@ def generate_sample_data():
             audit_log = audit_repo.create(
                 user_id=user,
                 action=event,
-                metadata={'record_type': 'Document'}
+                event_metadata={'record_type': 'Document'}
             )
             
             alert_repo.create(

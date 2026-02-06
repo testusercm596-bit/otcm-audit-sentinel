@@ -9,7 +9,7 @@ import logging
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.infrastructure.database import db
-from src.config.settings import settings
+from config.settings import settings
 from src.domain.alert_models import AlertResult  # Ensure table is created
 
 logging.basicConfig(

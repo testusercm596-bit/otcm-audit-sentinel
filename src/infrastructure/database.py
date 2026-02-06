@@ -14,7 +14,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.domain.models import Base, AuditLog
 from src.domain.alert_models import AlertResult
-from src.config.settings import settings
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 

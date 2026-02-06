@@ -15,12 +15,12 @@ class TestAuditLogModel:
             user_id="user123",
             action="READ",
             timestamp=datetime.utcnow(),
-            metadata={"document_id": "DOC001"}
+            event_metadata={"document_id": "DOC001"}
         )
         
         assert audit_log.user_id == "user123"
         assert audit_log.action == "READ"
-        assert audit_log.metadata["document_id"] == "DOC001"
+        assert audit_log.event_metadata["document_id"] == "DOC001"
     
     def test_audit_log_to_dict(self):
         """Test AuditLog to_dict conversion"""
@@ -30,7 +30,7 @@ class TestAuditLogModel:
             user_id="user123",
             action="DELETE",
             timestamp=timestamp,
-            metadata={"reason": "test"}
+            event_metadata={"reason": "test"}
         )
         
         result = audit_log.to_dict()
@@ -38,7 +38,7 @@ class TestAuditLogModel:
         assert result["id"] == 1
         assert result["user_id"] == "user123"
         assert result["action"] == "DELETE"
-        assert result["metadata"]["reason"] == "test"
+        assert result["event_metadata"]["reason"] == "test"
     
     def test_audit_log_repr(self):
         """Test AuditLog string representation"""

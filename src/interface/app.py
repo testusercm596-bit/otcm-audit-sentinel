@@ -15,7 +15,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from src.infrastructure.database import db
 from src.infrastructure.repositories import AuditLogRepository
 from src.infrastructure.alert_repository import AlertResultRepository
-from src.config.settings import settings
+from config.settings import settings
 
 
 # Page configuration

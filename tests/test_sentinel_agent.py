@@ -31,7 +31,7 @@ class TestSentinelAgent:
                 user_id="user123",
                 action="READ",
                 status=AuditStatus.COMPLETED,
-                metadata={}
+                event_metadata={}
             ),
             AuditRecord(
                 id="2",
@@ -40,7 +40,7 @@ class TestSentinelAgent:
                 user_id="user456",
                 action="DELETE",
                 status=AuditStatus.COMPLETED,
-                metadata={}
+                event_metadata={}
             )
         ]
     

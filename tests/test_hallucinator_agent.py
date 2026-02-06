@@ -30,7 +30,7 @@ class TestHallucinatorAgent:
             created_at=datetime.now(),
             modified_at=datetime.now(),
             permissions=[],
-            metadata={}
+            event_metadata={}
         )
     
     def test_generate_test_scenarios(self, hallucinator_agent, sample_document):
