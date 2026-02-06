@@ -87,14 +87,14 @@ CM_DOMAIN=YOUR_DOMAIN
 
 # AI Configuration - Sentinel Agent (Llama-4 Maverick)
 SENTINEL_API_KEY=your_api_key_here
-SENTINEL_API_BASE=https://sandbox.aviator-model.bp.anthos.otxlab.net/v1
+SENTINEL_API_BASE=https://model-broker.aviator-model.bp.anthos.otxlab.net/v1
 SENTINEL_MODEL=openai/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
 SENTINEL_TEMPERATURE=0.7
 SENTINEL_MAX_TOKENS=2000
 
 # AI Configuration - Hallucinator Agent (Llama-3.3)
 HALLUCINATOR_API_KEY=your_api_key_here
-HALLUCINATOR_API_BASE=https://sandbox.aviator-model.bp.anthos.otxlab.net/v1
+HALLUCINATOR_API_BASE=https://model-broker.aviator-model.bp.anthos.otxlab.net/v1
 HALLUCINATOR_MODEL=openai/meta-llama/Llama-3.3-70B-Instruct
 HALLUCINATOR_TEMPERATURE=0.7
 HALLUCINATOR_MAX_TOKENS=2000
@@ -255,7 +255,7 @@ hallucinator = HallucinatorAgent(
     model="openai/meta-llama/Llama-3.3-70B-Instruct",
     temperature=0.7,
     api_key="your_api_key_here",
-    api_base="https://sandbox.aviator-model.bp.anthos.otxlab.net/v1"
+    api_base="https://model-broker.aviator-model.bp.anthos.otxlab.net/v1"
 )
 
 # Or use default configuration from settings

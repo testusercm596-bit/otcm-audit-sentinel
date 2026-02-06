@@ -98,8 +98,8 @@ class Settings:
         # Sentinel AI Configuration
         self.sentinel_ai = SentinelAIConfig(
             api_key=os.getenv('SENTINEL_API_KEY', os.getenv('OPENAI_API_KEY', '')),
-            api_base=os.getenv('SENTINEL_API_BASE', 'https://sandbox.aviator-model.bp.anthos.otxlab.net/v1'),
-            model=os.getenv('SENTINEL_MODEL', 'openai/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'),
+            api_base=os.getenv('SENTINEL_API_BASE', 'https://model-broker.aviator-model.bp.anthos.otxlab.net/v1'),
+            model=os.getenv('SENTINEL_MODEL', 'llama-4-17b-maverick'),
             temperature=float(os.getenv('SENTINEL_TEMPERATURE', '0.7')),
             max_tokens=int(os.getenv('SENTINEL_MAX_TOKENS', '2000'))
         )
@@ -107,8 +107,8 @@ class Settings:
         # Hallucinator AI Configuration
         self.hallucinator_ai = HallucinatorAIConfig(
             api_key=os.getenv('HALLUCINATOR_API_KEY', os.getenv('OPENAI_API_KEY', '')),
-            api_base=os.getenv('HALLUCINATOR_API_BASE', 'https://sandbox.aviator-model.bp.anthos.otxlab.net/v1'),
-            model=os.getenv('HALLUCINATOR_MODEL', 'openai/meta-llama/Llama-3.3-70B-Instruct'),
+            api_base=os.getenv('HALLUCINATOR_API_BASE', 'https://model-broker.aviator-model.bp.anthos.otxlab.net/v1'),
+            model=os.getenv('HALLUCINATOR_MODEL', 'llama-3.3-70b'),
             temperature=float(os.getenv('HALLUCINATOR_TEMPERATURE', '0.7')),
             max_tokens=int(os.getenv('HALLUCINATOR_MAX_TOKENS', '2000'))
         )

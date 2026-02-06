@@ -22,7 +22,7 @@ def example_basic_defense():
         model="openai/meta-llama/Llama-3.3-70B-Instruct",
         temperature=0.7,
         api_key="your_api_key_here",
-        api_base="https://sandbox.aviator-model.bp.anthos.otxlab.net/v1"
+        api_base="https://model-broker.aviator-model.bp.anthos.otxlab.net/v1"
     )
     # Or use without API credentials for mock mode:
     # agent = HallucinatorAgent(model="gpt-4", temperature=0.7)
