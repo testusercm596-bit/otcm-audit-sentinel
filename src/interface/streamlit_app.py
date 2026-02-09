@@ -16,6 +16,7 @@ from src.application.hallucinator_agent import HallucinatorAgent
 from src.infrastructure.database import db
 from src.infrastructure.alert_repository import AlertResultRepository
 from src.infrastructure.content_manager_client import ContentManagerClient
+from src.infrastructure.rule_repository import RuleRepository
 
 
 def main():
@@ -32,11 +33,13 @@ def main():
     # Sidebar navigation
     page = st.sidebar.selectbox(
         "Navigation",
-        ["Dashboard", "Audit Analysis", "Security Testing", "Findings", "Settings"]
+        ["Dashboard", "Security Rules", "Audit Analysis", "Security Testing", "Findings", "Settings"]
     )
     
     if page == "Dashboard":
         show_dashboard()
+    elif page == "Security Rules":
+        show_security_rules()
     elif page == "Audit Analysis":
         show_audit_analysis()
     elif page == "Security Testing":
@@ -51,79 +54,296 @@ def show_dashboard():
     """Display main dashboard"""
     st.header("Security Dashboard")
     
-    # Auto-refresh toggle
-    col_refresh1, col_refresh2 = st.columns([3, 1])
-    with col_refresh2:
-        auto_refresh = st.checkbox("Auto-refresh (30s)", value=False)
+    # Metrics
+    col1, col2, col3, col4 = st.columns(4)
     
-    # Fetch real metrics from database
-    db.connect()
-    session = db.get_session()
-    alert_repo = AlertResultRepository(session)
+    with col1:
+        st.metric("Critical Findings", "3", "-1")
+    with col2:
+        st.metric("High Risk", "12", "+2")
+    with col3:
+        st.metric("Audit Events", "1,234", "+45")
+    with col4:
+        st.metric("System Health", "98%", "+2%")
     
-    try:
-        all_alerts = alert_repo.get_all(limit=1000)
-        active_alerts = alert_repo.get_active_alerts(limit=1000)
-        escalated = alert_repo.get_escalated_alerts(limit=1000)
+    # Recent findings chart
+    st.subheader("Recent Security Findings")
+    
+    # Placeholder data
+    findings_data = pd.DataFrame({
+        'Date': pd.date_range(end=datetime.now(), periods=7, freq='D'),
+        'Critical': [1, 2, 1, 3, 2, 1, 3],
+        'High': [5, 4, 6, 7, 8, 5, 12],
+        'Medium': [10, 12, 11, 9, 15, 14, 16]
+    })
+    
+    st.line_chart(findings_data.set_index('Date'))
+security_rules():
+    """Security rules management page"""
+    st.header("🔐 Security Rules Management")
+    
+    # Initialize rule repository
+    rule_repo = RuleRepository()
+    
+    # Create tabs for different actions
+    tab1, tab2, tab3 = st.tabs(["📝 Create Rule", "📋 View Rules", "📊 Statistics"])
+    
+    with tab1:
+        st.subheader("Create New Security Rule")
         
-        # Count by severity
-        critical = len([a for a in active_alerts if a.risk_score >= 0.8])
-        high = len([a for a in active_alerts if 0.6 <= a.risk_score < 0.8])
-        medium = len([a for a in active_alerts if 0.4 <= a.risk_score < 0.6])
+        rule_type = st.radio(
+            "Rule Type",
+            ["Natural Language (AI-Powered)", "Structured (Traditional)"],
+            help="Natural language rules use AI to evaluate events based on human-readable descriptions"
+        )
         
-        # Metrics
-        col1, col2, col3, col4 = st.columns(4)
+        if rule_type == "Natural Language (AI-Powered)":
+            st.markdown("---")
+            st.markdown("### 🤖 AI-Powered Natural Language Rule")
+            st.info("Describe the security rule in plain English. The AI will evaluate events against your description.")
+            
+            col1, col2 = st.columns([2, 1])
+            with col1:
+                rule_name = st.text_input(
+                    "Rule Name *",
+                    placeholder="e.g., After Hours Document Access"
+                )
+            with col2:
+                risk_score = st.slider("Risk Score", 0.0, 1.0, 0.7, 0.05)
+            
+            nl_description = st.text_area(
+                "Rule Description in Natural Language *",
+                placeholder="Describe what should trigger an alert. Examples:\n"
+                           "- Alert if user accesses confidential documents between 10 PM and 6 AM\n"
+                           "- Trigger alert when user downloads more than 50 files in one hour\n"
+                           "- Flag when a user from Sales accesses Engineering documents\n"
+                           "- Alert if non-admin user tries to modify permissions",
+                height=150
+            )
+            
+            st.markdown("**Examples of good natural language rules:**")
+            example_col1, example_col2 = st.columns(2)
+            with example_col1:
+                st.markdown("""
+                - Alert when user deletes more than 10 items in 5 minutes
+                - Flag access to HR documents by non-HR staff
+                - Warn if user exports data larger than 1GB
+                """)
+            with example_col2:
+                st.markdown("""
+                - Alert on failed login attempts exceeding 5 times
+                - Detect when user shares documents with external email
+                - Flag privilege escalation attempts
+                """)
+            
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                if st.button("Create Natural Language Rule", type="primary", use_container_width=True):
+                    if not rule_name or not nl_description:
+                        st.error("Please fill in all required fields (*)") 
+                    else:
+                        try:
+                            rule = rule_repo.create_natural_language_rule(
+                                name=rule_name,
+                                nl_rule=nl_description,
+                                risk_score=risk_score,
+                                created_by="admin"  # Would come from auth system
+                            )
+                            st.success(f"✅ Rule '{rule_name}' created successfully!")
+                            st.balloons()
+                        except Exception as e:
+                            st.error(f"Error creating rule: {e}")
+            
+        else:  # Structured rule
+            st.markdown("---")
+            st.markdown("### ⚙️ Structured Rule")
+            st.info("Define a rule using specific conditions and operators.")
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                rule_name = st.text_input("Rule Name *", placeholder="e.g., Excessive Deletes")
+            with col2:
+                risk_score = st.slider("Risk Score", 0.0, 1.0, 0.7, 0.05)
+            
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                condition = st.text_input(
+                    "Field/Condition *",
+                    placeholder="e.g., event_type or metadata.department",
+                    help="Use dot notation for nested fields"
+                )
+            with col2:
+                operator = st.selectbox(
+                    "Operator *",
+                    ["==", "!=", ">", "<", ">=", "<=", "in", "not in", "contains", "startswith", "endswith", "regex"]
+                )
+            with col3:
+                value = st.text_input(
+                    "Value *",
+                    placeholder="e.g., DELETE or ['value1', 'value2']"
+                )
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                threshold = st.number_input(
+                    "Threshold (optional)",
+                    min_value=0,
+                    value=0,
+                    help="For counting rules - trigger after N occurrences"
+                )
+            with col2:
+                description = st.text_area("Description", placeholder="Explain what this rule detects")
+            
+            if st.button("Create Structured Rule", type="primary"):
+                if not rule_name or not condition or not value:
+                    st.error("Please fill in all required fields (*)")
+                else:
+                    try:
+                        # Try to parse value as JSON for lists/dicts
+                        import json
+                        try:
+                            parsed_value = json.loads(value)
+                        except:
+                            parsed_value = value
+                        
+                        rule = rule_repo.create_structured_rule(
+                            name=rule_name,
+                            condition=condition,
+                            operator=operator,
+                            value=parsed_value,
+                            risk_score=risk_score,
+                            threshold=threshold if threshold > 0 else None,
+                            description=description,
+                            created_by="admin"
+                        )
+                        st.success(f"✅ Rule '{rule_name}' created successfully!")
+                        st.balloons()
+                    except Exception as e:
+                        st.error(f"Error creating rule: {e}")
+    
+    with tab2:
+        st.subheader("Active Security Rules")
         
+        # Filter options
+        col1, col2, col3 = st.columns([2, 2, 1])
         with col1:
-            st.metric("Critical Findings", critical)
+            filter_type = st.selectbox("Filter by Type", ["All", "Natural Language", "Structured"])
         with col2:
-            st.metric("High Risk", high)
+            filter_status = st.selectbox("Filter by Status", ["All", "Enabled", "Disabled"])
         with col3:
-            st.metric("Total Alerts", len(active_alerts))
-        with col4:
-            st.metric("Escalated", len(escalated))
+            if st.button("🔄 Refresh"):
+                st.rerun()
         
-        # Recent findings chart
-        st.subheader("Recent Security Findings")
-        
-        if all_alerts:
-            # Group by date and severity
-            df_alerts = pd.DataFrame([{
-                'timestamp': a.timestamp,
-                'risk_score': a.risk_score,
-                'severity': 'Critical' if a.risk_score >= 0.8 else 'High' if a.risk_score >= 0.6 else 'Medium'
-            } for a in all_alerts])
-            
-            df_alerts['date'] = pd.to_datetime(df_alerts['timestamp']).dt.date
-            
-            # Count by date and severity
-            chart_data = df_alerts.groupby(['date', 'severity']).size().unstack(fill_value=0)
-            
-            if not chart_data.empty:
-                st.line_chart(chart_data)
+        # Get rules
+        try:
+            if filter_type == "Natural Language":
+                rules = rule_repo.get_all_rules(rule_type='natural_language')
+            elif filter_type == "Structured":
+                rules = rule_repo.get_all_rules(rule_type='structured')
             else:
-                st.info("No alert data available for charting")
-        else:
-            st.info("No alerts found in database")
-        
-        # Recent alerts list
-        st.subheader("Recent Active Alerts")
-        if active_alerts[:5]:
-            for alert in active_alerts[:5]:
-                severity = "🔴" if alert.risk_score >= 0.8 else "🟠" if alert.risk_score >= 0.6 else "🟡"
-                st.warning(f"{severity} **{alert.user_id}** - {alert.event_type} (Risk: {alert.risk_score:.2f})")
-        else:
-            st.success("No active alerts - system is secure! ✅")
+                rules = rule_repo.get_all_rules()
             
-    finally:
-        session.close()
-        db.close()
+            if filter_status == "Enabled":
+                rules = [r for r in rules if r.enabled]
+            elif filter_status == "Disabled":
+                rules = [r for r in rules if not r.enabled]
+            
+            if rules:
+                st.markdown(f"**Found {len(rules)} rules**")
+                
+                for rule in rules:
+                    with st.expander(f"{'✓' if rule.enabled else '✗'} {rule.name} ({rule.rule_type})", expanded=False):
+                        col1, col2 = st.columns([3, 1])
+                        
+                        with col1:
+                            st.markdown(f"**Type:** {rule.rule_type}")
+                            st.markdown(f"**Risk Score:** {rule.risk_score}")
+                            st.markdown(f"**Status:** {'✓ Enabled' if rule.enabled else '✗ Disabled'}")
+                            
+                            if rule.rule_type == 'natural_language':
+                                st.markdown(f"**Rule:** {rule.natural_language_rule}")
+                            else:
+                                st.markdown(f"**Condition:** `{rule.condition}` {rule.operator} `{rule.value}`")
+                                if rule.threshold:
+                                    st.markdown(f"**Threshold:** {rule.threshold}")
+                                if rule.description:
+                                    st.markdown(f"**Description:** {rule.description}")
+                            
+                            st.markdown(f"**Created:** {rule.created_at}")
+                            st.markdown(f"**Triggered:** {rule.trigger_count} times")
+                            if rule.last_triggered:
+                                st.markdown(f"**Last Triggered:** {rule.last_triggered}")
+                        
+                        with col2:
+                            if rule.enabled:
+                                if st.button(f"Disable", key=f"disable_{rule.id}"):
+                                    rule_repo.disable_rule(rule.id)
+                                    st.success("Rule disabled")
+                                    st.rerun()
+                            else:
+                                if st.button(f"Enable", key=f"enable_{rule.id}"):
+                                    rule_repo.enable_rule(rule.id)
+                                    st.success("Rule enabled")
+                                    st.rerun()
+                            
+                            if st.button(f"Delete", key=f"delete_{rule.id}", type="secondary"):
+                                if st.button(f"Confirm Delete?", key=f"confirm_{rule.id}"):
+                                    rule_repo.delete_rule(rule.id)
+                                    st.success("Rule deleted")
+                                    st.rerun()
+            else:
+                st.info("No rules found. Create your first rule in the 'Create Rule' tab!")
+        
+        except Exception as e:
+            st.error(f"Error loading rules: {e}")
     
-    # Auto-refresh logic
-    if auto_refresh:
-        time.sleep(30)
-        st.rerun()
+    with tab3:
+        st.subheader("Rule Statistics")
+        
+        try:
+            stats = rule_repo.get_rule_statistics()
+            
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric("Total Rules", stats['total_rules'])
+            with col2:
+                st.metric("Enabled", stats['enabled_rules'])
+            with col3:
+                st.metric("AI Rules", stats['natural_language_rules'])
+            with col4:
+                st.metric("Structured", stats['structured_rules'])
+            
+            # Get all rules for additional stats
+            all_rules = rule_repo.get_all_rules()
+            
+            if all_rules:
+                st.markdown("---")
+                st.markdown("### Rule Performance")
+                
+                # Create dataframe for chart
+                rule_data = []
+                for rule in all_rules:
+                    rule_data.append({
+                        'Rule Name': rule.name,
+                        'Triggers': rule.trigger_count,
+                        'Risk Score': rule.risk_score,
+                        'Type': rule.rule_type
+                    })
+                
+                df = pd.DataFrame(rule_data)
+                
+                if not df.empty and df['Triggers'].sum() > 0:
+                    st.markdown("**Top Triggered Rules**")
+                    top_rules = df.nlargest(5, 'Triggers')[['Rule Name', 'Triggers']]
+                    st.bar_chart(top_rules.set_index('Rule Name'))
+                else:
+                    st.info("No rule triggers recorded yet.")
+        
+        except Exception as e:
+            st.error(f"Error loading statistics: {e}")
 
+
+def show_
 
 def show_audit_analysis():
     """Audit log analysis page"""
